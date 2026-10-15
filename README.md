@@ -1,6 +1,10 @@
 # Student Placement Segregation & Company Eligibility System
 
+[![GitHub Repository](https://img.shields.io/badge/GitHub-Repository-blue?logo=github)](https://github.com/Gan2205/student-placement-segregation)
+
 A systematic, production-grade full-stack application designed to manage, classify, and segregate student placement data, evaluate student qualifications against corporate recruitment criteria, and visualize placement statistics.
+
+**GitHub Repository**: [https://github.com/Gan2205/student-placement-segregation](https://github.com/Gan2205/student-placement-segregation)
 
 ---
 
