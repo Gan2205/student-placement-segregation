@@ -3,7 +3,17 @@
  * Dynamically configured via environmental keys (.env)
  */
 
-const BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:8000/api';
+const resolveBaseUrl = () => {
+  if (typeof window !== 'undefined' && !window.location.hostname.includes('localhost') && !window.location.hostname.includes('127.0.0.1')) {
+    // When hosted on Vercel (*.vercel.app), route through the relative /api proxy configured in vercel.json
+    return (import.meta.env.VITE_API_BASE_URL && !import.meta.env.VITE_API_BASE_URL.includes('localhost'))
+      ? import.meta.env.VITE_API_BASE_URL
+      : '/api';
+  }
+  return import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:8000/api';
+};
+
+const BASE_URL = resolveBaseUrl();
 
 async function request(endpoint, options = {}) {
   const url = `${BASE_URL}${endpoint}`;
